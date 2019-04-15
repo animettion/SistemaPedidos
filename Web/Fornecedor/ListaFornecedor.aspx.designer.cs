@@ -13,15 +13,6 @@ namespace Web.Fornecedor {
     public partial class ListaFornecedor {
         
         /// <summary>
-        /// Controle form1.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
         /// Controle grvFornecedor.
         /// </summary>
         /// <remarks>

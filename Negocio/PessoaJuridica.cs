@@ -1,5 +1,6 @@
 using DAO;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Negocio
 {
@@ -10,7 +11,7 @@ namespace Negocio
         private string _where = " WHERE CODIGOPJ = ";
         public List<PessoaJuridica> GetPessoaJuridicas()
         {
-            var listaPessoaJuridicas = Conexao.ExecutarComandoLeituraSQL(_tabela, "");
+            var listaPessoaJuridicas = Conexao.ExecutarComandoLeituraSQL(_tabela, " where Ativa = 'True'");
 
             List<PessoaJuridica> PessoaJuridicas = new List<PessoaJuridica>();
             foreach (var item in listaPessoaJuridicas)
@@ -18,11 +19,11 @@ namespace Negocio
                 PessoaJuridica p = new PessoaJuridica();
                 p.Ativa = item["Ativa"] == "True" ? "Sim" : "Não";
                 p.CNPJ = item["CNPJ"];
-                p.CodigoPessoa = item["CodigoPessoa"];
+                //p.CodigoPessoa = item["CodigoPessoa"];
                 p.CodigoPJ = item["CodigoPJ"];
 
                 PessoaBLL pbll = new PessoaBLL();
-                p.Pessoa = pbll.GetPessoa(p.CodigoPessoa);
+                p.Pessoa = pbll.GetPessoa(p.CodigoPJ);
                 PessoaJuridicas.Add(p);
             }
 
@@ -38,11 +39,11 @@ namespace Negocio
                 PessoaJuridica p = new PessoaJuridica();
                 p.Ativa = item["Ativa"];
                 p.CNPJ = item["CNPJ"];
-                p.CodigoPessoa = item["CodigoPessoa"];
+                //p.CodigoPessoa = item["CodigoPessoa"];
                 p.CodigoPJ = item["CodigoPJ"];
 
                 PessoaBLL pbll = new PessoaBLL();
-                p.Pessoa = pbll.GetPessoa(p.CodigoPessoa);
+                p.Pessoa = pbll.GetPessoa(p.CodigoPJ);
                 return p;
             }
 
@@ -51,18 +52,30 @@ namespace Negocio
 
         public void Inserir(PessoaJuridica p)
         {
+            PessoaBLL pbll = new PessoaBLL();
+            pbll.Inserir(p.Pessoa);
+            p.CodigoPJ=pbll.GetPessoas().Max(pp => int.Parse(pp.CodigoPessoa)).ToString();
+            
             string stcCommando = "INSERT INTO " + _tabela + " " +
-                "([Ativa], [CNPJ], [CodigoPessoa]) " +
-                "VALUES ('" + p.Ativa + "', '" + p.CNPJ + "', '" + p.CodigoPessoa + "')";
+                "([Ativa], [CNPJ], [CodigoPJ]) " +
+                "VALUES ('" +"True" + "', '" + p.CNPJ + "', '" + p.CodigoPJ + "')";
             Conexao.ExecutarComandoSQL(stcCommando);
         }
 
         public void Alterar(PessoaJuridica p)
         {
+            PessoaBLL pbll = new PessoaBLL();
+            pbll.Alterar(p.Pessoa);
+
             string stcCommando = "UPDATE " + _tabela + " SET " +
-                "Ativa = '" + p.Ativa + "', CNPJ =  '" + p.CNPJ + "' WHERE CODIGOPJ  = '" + p.CodigoPJ + "' ";
+                "CNPJ =  '" + p.CNPJ + "' WHERE CODIGOPJ  = '" + p.CodigoPJ + "' ";
             Conexao.ExecutarComandoSQL(stcCommando);
         }
-
+        public void Excluir(string id)
+        {
+            string stcCommando = "UPDATE " + _tabela + " SET " +
+                "Ativa = '" + "False" + "' WHERE CODIGOPJ  = '" + id + "' ";
+            Conexao.ExecutarComandoSQL(stcCommando);
+        }
     }
 }

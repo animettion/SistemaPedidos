@@ -72,6 +72,10 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Pedido\Pedido.aspx" />
+    <Content Include="Pessoa\ListaPessoa.aspx" />
+    <Content Include="Pessoa\Pessoa.aspx" />
+    <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -80,18 +84,47 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Fornecedor\Produtos.aspx" />
+    <Content Include="Fornecedor\Fornecedor.aspx" />
+    <Content Include="Produtos\Produtos.aspx" />
     <Content Include="Fornecedor\ListaFornecedor.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fornecedor\Produtos.aspx.cs">
+    <Compile Include="Fornecedor\Fornecedor.aspx.cs">
+      <DependentUpon>Fornecedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\Fornecedor.aspx.designer.cs">
+      <DependentUpon>Fornecedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pedido\Pedido.aspx.cs">
+      <DependentUpon>Pedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pedido\Pedido.aspx.designer.cs">
+      <DependentUpon>Pedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pessoa\ListaPessoa.aspx.cs">
+      <DependentUpon>ListaPessoa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pessoa\ListaPessoa.aspx.designer.cs">
+      <DependentUpon>ListaPessoa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pessoa\Pessoa.aspx.cs">
+      <DependentUpon>Pessoa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pessoa\Pessoa.aspx.designer.cs">
+      <DependentUpon>Pessoa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Produtos\Produtos.aspx.cs">
       <DependentUpon>Produtos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Fornecedor\Produtos.aspx.designer.cs">
+    <Compile Include="Produtos\Produtos.aspx.designer.cs">
       <DependentUpon>Produtos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Fornecedor\ListaFornecedor.aspx.cs">
@@ -112,11 +145,16 @@
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Produtos\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dto\dto.csproj">

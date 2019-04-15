@@ -1,5 +1,7 @@
 using DAO;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Negocio.obj
 {
@@ -19,7 +21,7 @@ namespace Negocio.obj
                 p.CodigoPF = item["CodigoPF"];
                 p.CPF = item["CPF"];
                 p.DataNascimento = item["DataNascimento"];
-                p.Sexo = item["Sexo"];
+                p.Sexo = item["Sexo"] == "F" ? "Feminino" : "Masculino";
 
                 PessoaBLL pbll = new PessoaBLL();
                 p.Pessoa = pbll.GetPessoa(p.CodigoPessoa);
@@ -50,18 +52,29 @@ namespace Negocio.obj
             return null;
         }
 
+
+
         public void Inserir(PessoaFisica p)
         {
-            string stcCommando = "INSERT INTO "+_tabela+" " +
+
+            PessoaBLL pbll = new PessoaBLL();
+            pbll.Inserir(p.Pessoa);
+            p.CodigoPessoa = pbll.GetPessoas().Max(pp => int.Parse(pp.CodigoPessoa)).ToString();
+
+            string stcCommando = "INSERT INTO " + _tabela + " " +
                 "([CPF], [DataNascimento], [CodigoPessoa], [Sexo]) " +
-                "VALUES ('"+p.CPF+"', '"+p.DataNascimento+"', '"+p.CodigoPessoa+"', '"+p.Sexo+"')";
+                "VALUES ('" + p.CPF + "', '" + p.DataNascimento + "', '" + p.CodigoPessoa + "', '" + p.Sexo + "')";
             Conexao.ExecutarComandoSQL(stcCommando);
         }
 
         public void Alterar(PessoaFisica p)
         {
+            PessoaBLL pbll = new PessoaBLL();
+            p.Pessoa.CodigoPessoa = GetPessoaFisica(p.CodigoPF).CodigoPessoa;
+            pbll.Alterar(p.Pessoa);
+
             string stcCommando = "UPDATE " + _tabela + " SET " +
-                "CPF = '" + p.CPF + "', DataNascimento =  '" + p.DataNascimento + "', Sexo = '"+p.Sexo+"' WHERE CODIGOPF  = '" + p.CodigoPF + "' ";
+                "CPF = '" + p.CPF + "', DataNascimento =  '" + p.DataNascimento + "', Sexo = '" + p.Sexo + "' WHERE CODIGOPF  = '" + p.CodigoPF + "' ";
             Conexao.ExecutarComandoSQL(stcCommando);
         }
     }

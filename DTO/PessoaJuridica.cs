@@ -5,6 +5,6 @@ namespace Negocio {
         public string Ativa { get; set; }
 
         public Pessoa Pessoa { get; set; }
-        public string CodigoPessoa { get; set; }
+        //public string CodigoPessoa { get; set; }
     }
 }

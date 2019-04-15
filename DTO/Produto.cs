@@ -5,5 +5,6 @@ namespace Negocio {
         public string Preco { get; set; }
         public string CodigoFornecedor { get; set; }
         public string Ativo { set; get; }
+        public PessoaJuridica Fornecedor { set; get; }
     }
 }

@@ -7,28 +7,10 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace Web.Fornecedor {
+namespace Web.Pessoa {
     
     
-    public partial class Produtos {
-        
-        /// <summary>
-        /// Controle form1.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// Controle lblNome.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNome;
+    public partial class Pessoa {
         
         /// <summary>
         /// Controle txtNome.
@@ -40,13 +22,40 @@ namespace Web.Fornecedor {
         protected global::System.Web.UI.WebControls.TextBox txtNome;
         
         /// <summary>
-        /// Controle txtPreco.
+        /// Controle txtEndereco.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPreco;
+        protected global::System.Web.UI.WebControls.TextBox txtEndereco;
+        
+        /// <summary>
+        /// Controle txtCpf.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCpf;
+        
+        /// <summary>
+        /// Controle txtDataNasc.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDataNasc;
+        
+        /// <summary>
+        /// Controle rdbSexo.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdbSexo;
         
         /// <summary>
         /// Controle btnSalvar.
@@ -56,14 +65,5 @@ namespace Web.Fornecedor {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSalvar;
-        
-        /// <summary>
-        /// Controle grvProdutos.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvProdutos;
     }
 }

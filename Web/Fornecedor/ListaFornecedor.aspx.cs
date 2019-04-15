@@ -28,10 +28,20 @@ namespace Web.Fornecedor
 
         protected void grvFornecedor_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            string id = e.CommandArgument.ToString();
+
             if (e.CommandName == "Produtos")
+            {               
+                Response.Redirect("../Produtos/Produtos.aspx?ID=" + id);
+            }
+            else if (e.CommandName == "Editar")
             {
-                string id = e.CommandArgument.ToString();
-                Response.Redirect("Produtos.aspx?ID=" + id);
+                Response.Redirect("Fornecedor.aspx?ID=" + id);
+            }else if (e.CommandName == "Excluir")
+            {
+                PessoaJuridicaBLL pjbll = new PessoaJuridicaBLL();
+                pjbll.Excluir(id);
+                CarregarFornecedores();
             }
         }
     }

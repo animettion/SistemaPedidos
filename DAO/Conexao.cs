@@ -26,8 +26,15 @@ namespace DAO
 
         public static SqlConnection AbrirConexao()
         {
+
+            var path = AppDomain.CurrentDomain.BaseDirectory.Replace("Web","DAO");
+            //var path = @"C:\Users\Leonardo\Downloads\SistemaPedidos\SistemaPedidos\DAO\";
+           
             if (con == null)
-            { con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Leonardo\Downloads\SistemaPedidos\SistemaPedidos\DAO\Banco.mdf;Integrated Security=True;Connect Timeout=30"); }
+            {
+                //con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Leonardo\Downloads\SistemaPedidos\SistemaPedidos\DAO\Banco.mdf;Integrated Security=True;Connect Timeout=30"); }
+                con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "Banco.mdf;Integrated Security=True;Connect Timeout=30");
+            }
 
             if (con.State == System.Data.ConnectionState.Closed)
             { con.Open(); }
@@ -51,7 +58,7 @@ namespace DAO
             FecharConexao();
         }
 
-        public static List<Dictionary<string, string>>ExecutarComandoLeituraSQL(string tabela, string where)
+        public static List<Dictionary<string, string>> ExecutarComandoLeituraSQL(string tabela, string where)
         {
 
             List<Dictionary<string, string>> registros = new List<Dictionary<string, string>>();

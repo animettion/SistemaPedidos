@@ -1,6 +1,4 @@
-﻿using Negocio;
-using Negocio.obj;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,11 +7,10 @@ using System.Web.UI.WebControls;
 
 namespace Web
 {
-    public partial class Home : System.Web.UI.Page
+    public partial class Site1 : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
 
         }
     }

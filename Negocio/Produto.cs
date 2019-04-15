@@ -21,6 +21,9 @@ namespace Negocio
                 p.CodigoProduto = item["CodigoProduto"];
                 p.Nome = item["Nome"];
                 p.Preco = item["Preco"];
+                PessoaJuridicaBLL pjbll = new PessoaJuridicaBLL();
+                p.Fornecedor = pjbll.GetPessoaJuridica(p.CodigoFornecedor);
+                Produtos.Add(p);
             }
 
             return Produtos;
