@@ -22,6 +22,33 @@ namespace Web.Pedido {
         protected global::System.Web.UI.WebControls.DropDownList drpPessoas;
         
         /// <summary>
+        /// Controle drpFornecedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpFornecedor;
+        
+        /// <summary>
+        /// Controle btnAvancar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAvancar;
+        
+        /// <summary>
+        /// Controle DivGrid.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivGrid;
+        
+        /// <summary>
         /// Controle grvProdutos.
         /// </summary>
         /// <remarks>
@@ -38,6 +65,15 @@ namespace Web.Pedido {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grvProdutosSelecionados;
+        
+        /// <summary>
+        /// Controle lblTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotal;
         
         /// <summary>
         /// Controle btnFinalizar.

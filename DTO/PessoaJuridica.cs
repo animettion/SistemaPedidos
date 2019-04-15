@@ -6,5 +6,6 @@ namespace Negocio {
 
         public Pessoa Pessoa { get; set; }
         //public string CodigoPessoa { get; set; }
+        public string NomePessoa { get { return Pessoa.Nome; } }
     }
 }

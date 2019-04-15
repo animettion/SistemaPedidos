@@ -72,6 +72,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Pedido\DetalhesPedido.aspx" />
     <Content Include="Pedido\Pedido.aspx" />
     <Content Include="Pessoa\ListaPessoa.aspx" />
     <Content Include="Pessoa\Pessoa.aspx" />
@@ -98,6 +99,13 @@
     </Compile>
     <Compile Include="Fornecedor\Fornecedor.aspx.designer.cs">
       <DependentUpon>Fornecedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pedido\DetalhesPedido.aspx.cs">
+      <DependentUpon>DetalhesPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pedido\DetalhesPedido.aspx.designer.cs">
+      <DependentUpon>DetalhesPedido.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pedido\Pedido.aspx.cs">
       <DependentUpon>Pedido.aspx</DependentUpon>
@@ -177,7 +185,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>12640</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

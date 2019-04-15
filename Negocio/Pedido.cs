@@ -1,4 +1,5 @@
 using DAO;
+using System;
 using System.Collections.Generic;
 
 namespace Negocio
@@ -18,7 +19,7 @@ namespace Negocio
                 p.CodigoComprador = item["CodigoComprador"];
                 p.CodigoPedido = item["CodigoPedido"];
                 p.CodigoVendedor = item["CodigoVendedor"];
-                p.DatPedido = item["DatPedido"];
+                p.DataPedido = DateTime.Parse(item["DataPedido"]);
                 Pedidos.Add(p);
             }
 
@@ -35,7 +36,7 @@ namespace Negocio
                 p.CodigoComprador = item["CodigoComprador"];
                 p.CodigoPedido = item["CodigoPedido"];
                 p.CodigoVendedor = item["CodigoVendedor"];
-                p.DatPedido = item["DatPedido"];
+                p.DataPedido = DateTime.Parse(item["DataPedido"]);
                 return p;
             }
 
@@ -45,15 +46,15 @@ namespace Negocio
         public void Inserir(Pedido p)
         {
             string stcCommando = "INSERT INTO " + _tabela + " " +
-                "([CodigoComprador], [CodigoVendedor], [DatPedido]) " +
-                "VALUES ('" + p.CodigoComprador + "', '" + p.CodigoVendedor + "', '" + p.DatPedido + "')";
+                "([CodigoComprador], [CodigoVendedor], [DataPedido]) " +
+                "VALUES ('" + p.CodigoComprador + "', '" + p.CodigoVendedor + "', " + p.DataPedido.ToShortDateString() + ")";
             Conexao.ExecutarComandoSQL(stcCommando);
         }
 
         public void Alterar(Pedido p)
         {
             string stcCommando = "UPDATE " + _tabela + " SET " +
-                "CodigoComprador = '" + p.CodigoComprador + "', CodigoVendedor =  '" + p.CodigoVendedor + ", DatPedido = '" + p.DatPedido + " WHERE CodigoPedido  = '" + p.CodigoPedido + "' ";
+                "CodigoComprador = '" + p.CodigoComprador + "', CodigoVendedor =  '" + p.CodigoVendedor + ", DataPedido = " + p.DataPedido.ToShortDateString() + " WHERE CodigoPedido  = '" + p.CodigoPedido + "' ";
             Conexao.ExecutarComandoSQL(stcCommando);
         }
     }

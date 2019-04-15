@@ -3,23 +3,35 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    Nome:
-    <asp:textbox runat="server" id="txtNome"></asp:textbox>
+
+    <h2 class="bd-title">Pessoa</h2>
+    <div class="form-group">
+        <label for="exampleInputNome">Nome</label>
+        <asp:TextBox runat="server" ID="txtNome" class="form-control"></asp:TextBox>
+
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEndereço">Endereço</label>
+        <asp:TextBox runat="server" ID="txtEndereco" class="form-control"></asp:TextBox>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputCPF">CPF</label>
+        <asp:TextBox runat="server" ID="txtCpf" class="form-control"></asp:TextBox>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputDataNasc">Data de Nascimento</label>
+        <asp:TextBox runat="server" ID="txtDataNasc" class="form-control"></asp:TextBox>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputSexo">Sexo</label>
+        <asp:RadioButtonList ID="rdbSexo" runat="server" RepeatDirection="Horizontal">
+            <asp:ListItem Selected="True" Value="M">Masculino</asp:ListItem>
+            <asp:ListItem Value="F">Feminino</asp:ListItem>
+        </asp:RadioButtonList>
+    </div>
+    <asp:Button runat="server" ID="btnSalvar" Text="Salvar" OnClick="btnSalvar_Click" class="btn btn-primary" />
+
+
     <br />
-    Endereço: 
-    <asp:textbox runat="server" id="txtEndereco"></asp:textbox>
-    <br />
-    CPF: 
-    <asp:textbox runat="server" id="txtCpf"></asp:textbox>
-    <br />
-    Data de Nascimento:
-    <asp:textbox runat="server" id="txtDataNasc"></asp:textbox>
-    <br />
-    Sexo:
-    <asp:RadioButtonList ID="rdbSexo" runat="server" RepeatDirection="Horizontal">
-        <asp:ListItem Selected="True" Value="M">Masc</asp:ListItem>
-        <asp:ListItem Value="F">Fem</asp:ListItem>
-    </asp:RadioButtonList>
-    <br />
-    <asp:button runat="server" id="btnSalvar" Text="Salvar" OnClick="btnSalvar_Click"/>
+
 </asp:Content>

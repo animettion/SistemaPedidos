@@ -25,13 +25,25 @@ namespace Web.Pedido
                     drpPessoas.SelectedValue = idpessoa;
                     drpPessoas.Enabled = false;
                 }
-                CarregarProdutos();
+                CarregarFornecedores();
             }
         }
+
+        private void CarregarFornecedores()
+        {
+            PessoaJuridicaBLL pbll = new PessoaJuridicaBLL();
+            var pessoas = pbll.GetPessoaJuridicas();
+
+            drpFornecedor.DataTextField = "NomePessoa";
+            drpFornecedor.DataValueField = "CodigoPJ";
+            drpFornecedor.DataSource = pessoas;
+            drpFornecedor.DataBind();
+        }
+
         private void CarregarProdutos()
         {
             ProdutoBLL pbll = new ProdutoBLL();
-            grvProdutos.DataSource = pbll.GetProdutos();
+            grvProdutos.DataSource = pbll.GetProdutosByFornecedor(drpFornecedor.SelectedValue);
             grvProdutos.DataBind();
         }
         private void CarregarPessoas()
@@ -47,13 +59,14 @@ namespace Web.Pedido
 
         protected void grvProdutos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if(e.CommandName== "Add")
+            if (e.CommandName == "Add")
             {
                 ProdutoBLL pbll = new ProdutoBLL();
-                var ped=pbll.GetProduto(e.CommandArgument.ToString());
+                var ped = pbll.GetProduto(e.CommandArgument.ToString());
                 ProdutosAdd.Add(ped);
 
                 CarregarPedidosAdicionados();
+                CalcularTotal();
             }
         }
 
@@ -69,17 +82,28 @@ namespace Web.Pedido
             {
                 ProdutoBLL pbll = new ProdutoBLL();
                 //var ped = pbll.GetProduto(e.CommandArgument.ToString());
-                
-                for(var i=0;i< ProdutosAdd.Count; i++)
+
+                for (var i = 0; i < ProdutosAdd.Count; i++)
                 {
                     if (ProdutosAdd[i].CodigoProduto == e.CommandArgument.ToString())
                     {
                         ProdutosAdd.RemoveAt(i);
-                    }   
+                        CalcularTotal();
+                    }
                 }
-               
+
                 CarregarPedidosAdicionados();
             }
+        }
+
+        private void CalcularTotal()
+        {
+            double total = 0;
+            for (var i = 0; i < ProdutosAdd.Count; i++)
+            {
+                total +=  double.Parse(ProdutosAdd[i].Preco);
+            }
+            lblTotal.Text = total.ToString();
         }
 
         protected void Finalizar_Click(object sender, EventArgs e)
@@ -87,7 +111,32 @@ namespace Web.Pedido
             PedidoBLL pbll = new PedidoBLL();
             Negocio.Pedido ped = new Negocio.Pedido();
             ped.CodigoComprador = drpPessoas.SelectedValue;
-            ped.CodigoVendedor
+            ped.CodigoVendedor = drpFornecedor.SelectedValue;
+            ped.DataPedido = DateTime.Now;
+            pbll.Inserir(ped);
+            string idpedido = pbll.GetPedidos().Max(p => int.Parse(p.CodigoPedido)).ToString();
+
+            foreach (var produto in ProdutosAdd)
+            {
+                Item item = new Item();
+                item.CodigoPedido = idpedido;
+                item.CodigoProduto = produto.CodigoProduto;
+                item.Qtd = "1";
+
+                ItemBLL ibll = new ItemBLL();
+                ibll.Inserir(item);
+             }
+
+            Response.Redirect("DetalhesPedido.aspx?id=IDPedido");
+        }
+
+        protected void btnAvancar_Click(object sender, EventArgs e)
+        {
+            drpFornecedor.Enabled = false;
+            drpPessoas.Enabled = false;
+            btnAvancar.Visible = false;
+            DivGrid.Visible = true;
+            CarregarProdutos();
         }
     }
 }
