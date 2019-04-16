@@ -3,57 +3,87 @@
 <!DOCTYPE html>
 
 <html>
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+<head>
+    <meta charset="utf-8">
 
+    <title>Sistema Pedido</title>
+
+
+    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/home.aspx">Sistema de Pedidos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-
-    <form id="form1" runat="server" style="background-color: #E3EAEB; height: 600px">
-        <div>
-
-            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" BackColor="#E3EAEB" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#666666" StaticSubMenuIndent="10px">
-                <DynamicHoverStyle BackColor="#666666" ForeColor="White" />
-                <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                <DynamicMenuStyle BackColor="#E3EAEB" />
-                <DynamicSelectedStyle BackColor="#1C5E55" />
-                <Items>
-                    <asp:MenuItem NavigateUrl="~/Home.aspx" Text="Home" Value="Home"></asp:MenuItem>
-                    <asp:MenuItem Text="Pessoa" Value="Pessoa">
-                        <asp:MenuItem NavigateUrl="~/Pessoa/Pessoa.aspx" Text="Novo" Value="Novo"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/Pessoa/ListaPessoa.aspx" Text="Listar" Value="Listar"></asp:MenuItem>
-                    </asp:MenuItem>
-                    <asp:MenuItem Text="Fornecedor" Value="Fornecedor">
-                        <asp:MenuItem NavigateUrl="~/Fornecedor/Fornecedor.aspx" Text="Novo" Value="Novo"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/Fornecedor/ListaFornecedor.aspx" Text="Listar" Value="Listar"></asp:MenuItem>
-                    </asp:MenuItem>
-                    <asp:MenuItem Text="Pedido" Value="Pedido" NavigateUrl="~/Pedido/Pedido.aspx"></asp:MenuItem>
-                </Items>
-                <StaticHoverStyle BackColor="#666666" ForeColor="White" />
-                <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                <StaticSelectedStyle BackColor="#1C5E55" />
-            </asp:Menu>
-            <br />
-            <br />
-            <div class="form-group">
-                <div style="width: 50%; margin:0 auto">
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                    </asp:ContentPlaceHolder>
-                </div>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pessoa</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="/Pessoa/Pessoa.aspx">Novo</a>
+                        <a class="dropdown-item" href="/Pessoa/ListaPessoa.aspx">Consulta</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fornecedor</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="/Fornecedor/Fornecedor.aspx">Novo</a>
+                        <a class="dropdown-item" href="/Fornecedor/ListaFornecedor.aspx">Consulta</a>
+                    </div>
+                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pedido</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="/Pedido/Pedido.aspx">Pedido</a>
+                        <a class="dropdown-item" href="/Pedido/ListaPedido.aspx">Consulta</a>
+                    </div>
+                </li>
+              
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+            </form>
         </div>
-    </form>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    </nav>
+
+    <main role="main" class="container">
+        <br />
+        <br />
+        <br />
+        <div class="starter-template">
+            <form runat="server">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </form>
+        </div>
+
+    </main><!-- /.container -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
 </body>
 </html>

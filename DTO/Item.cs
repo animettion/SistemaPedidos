@@ -5,5 +5,6 @@ namespace Negocio {
         public string CodigoProduto { get; set; }
         public string Qtd { get; set; }
         public string ValorUnitario { get; set; }
+        public Produto produto { set; get; }
     }
 }

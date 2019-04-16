@@ -7,27 +7,18 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace Web {
+namespace Web.Pedido {
     
     
-    public partial class Site1 {
+    public partial class ListaPedido {
         
         /// <summary>
-        /// Controle head.
+        /// Controle grvPedido.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-        
-        /// <summary>
-        /// Controle ContentPlaceHolder1.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.GridView grvPedido;
     }
 }

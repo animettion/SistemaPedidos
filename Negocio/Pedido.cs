@@ -1,4 +1,5 @@
 using DAO;
+using Negocio.obj;
 using System;
 using System.Collections.Generic;
 
@@ -20,6 +21,11 @@ namespace Negocio
                 p.CodigoPedido = item["CodigoPedido"];
                 p.CodigoVendedor = item["CodigoVendedor"];
                 p.DataPedido = DateTime.Parse(item["DataPedido"]);
+
+                PessoaFisicaBLL pfbll = new PessoaFisicaBLL();
+                p.Comprador = pfbll.GetPessoaFisica(p.CodigoComprador);
+                PessoaJuridicaBLL pjbll = new PessoaJuridicaBLL();
+                p.Vendedor = pjbll.GetPessoaJuridica(p.CodigoVendedor);
                 Pedidos.Add(p);
             }
 
@@ -47,7 +53,7 @@ namespace Negocio
         {
             string stcCommando = "INSERT INTO " + _tabela + " " +
                 "([CodigoComprador], [CodigoVendedor], [DataPedido]) " +
-                "VALUES ('" + p.CodigoComprador + "', '" + p.CodigoVendedor + "', " + p.DataPedido.ToShortDateString() + ")";
+                "VALUES ('" + p.CodigoComprador + "', '" + p.CodigoVendedor + "', " + DateTime.Now.ToShortDateString() + ")";
             Conexao.ExecutarComandoSQL(stcCommando);
         }
 

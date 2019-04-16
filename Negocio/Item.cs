@@ -18,6 +18,8 @@ namespace Negocio {
                 p.CodigoProduto = item["CodigoProduto"];
                 p.Qtd = item["Qtd"];
                 p.ValorUnitario = item["ValorUnitario"];
+                ProdutoBLL prbll = new ProdutoBLL();
+                p.produto = prbll.GetProduto(p.CodigoProduto);
                 Items.Add(p);
             }
 

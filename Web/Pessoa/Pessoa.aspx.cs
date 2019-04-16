@@ -24,7 +24,7 @@ namespace Web.Pessoa
                     txtEndereco.Text = pessoa.Pessoa.Endereco;
                     txtNome.Text = pessoa.Pessoa.Nome;
                     rdbSexo.SelectedValue = pessoa.Sexo;
-                    
+
                 }
             }
         }
@@ -44,7 +44,7 @@ namespace Web.Pessoa
             string id = Request["ID"];
             if (id != null)
             {
-               
+
                 p.CodigoPF = id;
                 pbll.Alterar(p);
             }

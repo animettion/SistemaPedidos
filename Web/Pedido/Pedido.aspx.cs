@@ -122,12 +122,12 @@ namespace Web.Pedido
                 item.CodigoPedido = idpedido;
                 item.CodigoProduto = produto.CodigoProduto;
                 item.Qtd = "1";
-
+                item.ValorUnitario = produto.Preco;
                 ItemBLL ibll = new ItemBLL();
                 ibll.Inserir(item);
              }
 
-            Response.Redirect("DetalhesPedido.aspx?id=IDPedido");
+            Response.Redirect("DetalhesPedido.aspx?IDPedido="+ idpedido);
         }
 
         protected void btnAvancar_Click(object sender, EventArgs e)

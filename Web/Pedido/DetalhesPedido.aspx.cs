@@ -14,9 +14,9 @@ namespace Web.Pedido
         protected void Page_Load(object sender, EventArgs e)
         {
             {
-                
+
                 string idpedido = Request["IDPedido"];
-                
+
                 if (idpedido != null)
                 {
                     PedidoBLL pbll = new PedidoBLL();
@@ -25,21 +25,26 @@ namespace Web.Pedido
                     ItemBLL ibll = new ItemBLL();
                     ProdutoBLL prbll = new ProdutoBLL();
 
-                    var pedido=pbll.GetPedido(idpedido);
+                    var pedido = pbll.GetPedido(idpedido);
                     lblCodigoPedido.Text = pedido.CodigoPedido;
                     lblNomePessoa.Text = pfbll.GetPessoaFisica(pedido.CodigoComprador).NomePessoa;
                     lblNomeFornecedor.Text = pjbll.GetPessoaJuridica(pedido.CodigoVendedor).NomePessoa;
 
                     var items = ibll.GetItems().Where(p => p.CodigoPedido == pedido.CodigoPedido).ToList();
-                    string labelitens = "";
-                    foreach(var item in items)
+                    double total = 0;
+                    List<Produto> produtos = new List<Produto>();
+                    foreach (var item in items)
                     {
-                        var produto = prbll.GetProduto(item.CodigoProduto);
-                        labelitens += "Produto: "+produto.Nome+"| Qtd: "+item.Qtd+"| Preço: "+produto.Preco;
+                        //var produto = prbll.GetProduto(item.CodigoProduto);
+                        //produtos.Add(produto);
+                        total += double.Parse(item.produto.Preco);
+                        //labelitens += "<br/>Produto: "+produto.Nome+"| Qtd: "+item.Qtd+"| Preço: "+produto.Preco;
                     }
-                    lblItems.Text = labelitens;
+                    grvProdutos.DataSource = items;
+                    grvProdutos.DataBind();
+                    lblTotal.Text = total.ToString();
                 }
-                
+
             }
         }
     }

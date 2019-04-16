@@ -1,3 +1,5 @@
+using System;
+
 namespace Negocio.obj
 {
     public class PessoaFisica

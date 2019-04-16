@@ -73,10 +73,22 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Pedido\DetalhesPedido.aspx" />
+    <Content Include="Pedido\ListaPedido.aspx" />
     <Content Include="Pedido\Pedido.aspx" />
     <Content Include="Pessoa\ListaPessoa.aspx" />
     <Content Include="Pessoa\Pessoa.aspx" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery.mask.js" />
+    <Content Include="Scripts\jquery.mask.min.js" />
+    <Content Include="Scripts\jquery.maskedinput.js" />
     <Content Include="Site1.Master" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -106,6 +118,13 @@
     </Compile>
     <Compile Include="Pedido\DetalhesPedido.aspx.designer.cs">
       <DependentUpon>DetalhesPedido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pedido\ListaPedido.aspx.cs">
+      <DependentUpon>ListaPedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pedido\ListaPedido.aspx.designer.cs">
+      <DependentUpon>ListaPedido.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pedido\Pedido.aspx.cs">
       <DependentUpon>Pedido.aspx</DependentUpon>
