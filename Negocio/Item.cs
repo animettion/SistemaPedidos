@@ -18,6 +18,7 @@ namespace Negocio {
                 p.CodigoProduto = item["CodigoProduto"];
                 p.Qtd = item["Qtd"];
                 p.ValorUnitario = item["ValorUnitario"];
+                p.ValorTotal = (int.Parse(p.Qtd) * double.Parse(p.ValorUnitario)).ToString();
                 ProdutoBLL prbll = new ProdutoBLL();
                 p.produto = prbll.GetProduto(p.CodigoProduto);
                 Items.Add(p);

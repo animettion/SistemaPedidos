@@ -37,7 +37,7 @@ namespace Web.Pedido
                     {
                         //var produto = prbll.GetProduto(item.CodigoProduto);
                         //produtos.Add(produto);
-                        total += double.Parse(item.produto.Preco);
+                        total += double.Parse(item.ValorTotal);
                         //labelitens += "<br/>Produto: "+produto.Nome+"| Qtd: "+item.Qtd+"| Preço: "+produto.Preco;
                     }
                     grvProdutos.DataSource = items;

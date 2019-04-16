@@ -20,7 +20,7 @@ namespace Negocio
                 p.CodigoComprador = item["CodigoComprador"];
                 p.CodigoPedido = item["CodigoPedido"];
                 p.CodigoVendedor = item["CodigoVendedor"];
-                p.DataPedido = DateTime.Parse(item["DataPedido"]);
+                p.DataPedido = item["DataPedido"];
 
                 PessoaFisicaBLL pfbll = new PessoaFisicaBLL();
                 p.Comprador = pfbll.GetPessoaFisica(p.CodigoComprador);
@@ -42,7 +42,7 @@ namespace Negocio
                 p.CodigoComprador = item["CodigoComprador"];
                 p.CodigoPedido = item["CodigoPedido"];
                 p.CodigoVendedor = item["CodigoVendedor"];
-                p.DataPedido = DateTime.Parse(item["DataPedido"]);
+                p.DataPedido = item["DataPedido"];
                 return p;
             }
 
@@ -53,14 +53,14 @@ namespace Negocio
         {
             string stcCommando = "INSERT INTO " + _tabela + " " +
                 "([CodigoComprador], [CodigoVendedor], [DataPedido]) " +
-                "VALUES ('" + p.CodigoComprador + "', '" + p.CodigoVendedor + "', " + DateTime.Now.ToShortDateString() + ")";
+                "VALUES ('" + p.CodigoComprador + "', '" + p.CodigoVendedor + "', '" + DateTime.Now.ToShortDateString() + "')";
             Conexao.ExecutarComandoSQL(stcCommando);
         }
 
         public void Alterar(Pedido p)
         {
             string stcCommando = "UPDATE " + _tabela + " SET " +
-                "CodigoComprador = '" + p.CodigoComprador + "', CodigoVendedor =  '" + p.CodigoVendedor + ", DataPedido = " + p.DataPedido.ToShortDateString() + " WHERE CodigoPedido  = '" + p.CodigoPedido + "' ";
+                "CodigoComprador = '" + p.CodigoComprador + "', CodigoVendedor =  '" + p.CodigoVendedor + ", DataPedido = '" + p.DataPedido + "' WHERE CodigoPedido  = '" + p.CodigoPedido + "' ";
             Conexao.ExecutarComandoSQL(stcCommando);
         }
     }

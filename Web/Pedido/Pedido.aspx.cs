@@ -112,17 +112,36 @@ namespace Web.Pedido
             Negocio.Pedido ped = new Negocio.Pedido();
             ped.CodigoComprador = drpPessoas.SelectedValue;
             ped.CodigoVendedor = drpFornecedor.SelectedValue;
-            ped.DataPedido = DateTime.Now;
+            ped.DataPedido = DateTime.Now.ToShortDateString();
             pbll.Inserir(ped);
             string idpedido = pbll.GetPedidos().Max(p => int.Parse(p.CodigoPedido)).ToString();
 
-            foreach (var produto in ProdutosAdd)
+            //var prodGroup = ProdutosAdd.GroupBy(p => new { p.CodigoProduto, p.Preco })
+            //    .GroupBy(g=>g.Key.CodigoProduto)
+                  
+            //            .Select(group => new {
+            //                produto = group.Key,
+            //                Count = group.Count()
+            //            })
+            //            .OrderBy(x => x.produto);
+
+            var prodGroup =
+                    from tt in ProdutosAdd
+                    group tt by new { tt.CodigoProduto, tt.Preco } into g
+                    select new
+                      {
+                          Name = g.Key,
+                          Count = g.Count()
+                      };
+
+            foreach (var produto in prodGroup)
             {
                 Item item = new Item();
                 item.CodigoPedido = idpedido;
-                item.CodigoProduto = produto.CodigoProduto;
-                item.Qtd = "1";
-                item.ValorUnitario = produto.Preco;
+                item.CodigoProduto = produto.Name.CodigoProduto;
+                item.Qtd = produto.Count.ToString();
+                item.ValorUnitario = produto.Name.Preco;
+                //item.ValorTotal = (int.Parse(item.Qtd) * double.Parse(item.ValorUnitario)).ToString();
                 ItemBLL ibll = new ItemBLL();
                 ibll.Inserir(item);
              }

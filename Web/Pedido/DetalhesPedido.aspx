@@ -24,8 +24,9 @@
     <asp:gridview id="grvProdutos" runat="server" autogeneratecolumns="false" width="800px" cssclass="table table-hover table-striped" gridlines="None">
                <Columns>
                    <asp:BoundField DataField="produto.Nome" HeaderText="Nome" />
-                   <asp:BoundField DataField="produto.Preco" HeaderText="Preço" />
+                   <asp:BoundField DataField="ValorUnitario" HeaderText="Preço Unitario" />
                    <asp:BoundField DataField="Qtd" HeaderText="Quantidade" />
+                   <asp:BoundField DataField="ValorTotal" HeaderText="Preço Total" />
                </Columns>
            </asp:gridview>
     Total: R$

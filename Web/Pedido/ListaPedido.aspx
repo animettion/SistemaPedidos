@@ -8,7 +8,7 @@
         <Columns>
             <asp:BoundField DataField="CodigoPedido" HeaderText="Codigo Pedido" />
 
-            <asp:BoundField DataField="DataPedido" HeaderText="Data" />
+            <asp:BoundField DataField="DataPedido" HeaderText="Data" DataFormatString="{0:dd/M/yyyy}"  />
             <asp:BoundField DataField="Comprador.pessoa.nome" HeaderText="Comprador" />
             <asp:BoundField DataField="Vendedor.pessoa.nome" HeaderText="Vendedor" />
             <asp:TemplateField ItemStyle-Width="100px">
