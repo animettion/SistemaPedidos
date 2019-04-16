@@ -21,7 +21,7 @@ namespace Web.Pedido
         private void CarregarPedidos()
         {
             PedidoBLL pbll = new PedidoBLL();
-            grvPedido.DataSource=pbll.GetPedidos();
+            grvPedido.DataSource = pbll.GetPedidos();
             grvPedido.DataBind();
         }
 

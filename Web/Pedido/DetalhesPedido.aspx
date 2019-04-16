@@ -6,29 +6,27 @@
     <h2 class="bd-title">Detalhes do Pedido</h2>
     <div class="form-group">
         <label for="exampleInputNome">Codigo do Pedido</label>
-        <asp:label id="lblCodigoPedido" runat="server" class="form-control"></asp:label>
-        
-
+        <asp:Label ID="lblCodigoPedido" runat="server" class="form-control"></asp:Label>
     </div>
     <div class="form-group">
         <label for="exampleInputEndereço">Comprador</label>
-        <asp:label id="lblNomePessoa" runat="server" class="form-control"></asp:label>
-        
+        <asp:Label ID="lblNomePessoa" runat="server" class="form-control"></asp:Label>
+
     </div>
     <div class="form-group">
         <label for="exampleInputCPF">Fornecedor</label>
-        <asp:label id="lblNomeFornecedor" runat="server" class="form-control"></asp:label>
+        <asp:Label ID="lblNomeFornecedor" runat="server" class="form-control"></asp:Label>
     </div>
 
     Itens:<br />
-    <asp:gridview id="grvProdutos" runat="server" autogeneratecolumns="false" width="800px" cssclass="table table-hover table-striped" gridlines="None">
-               <Columns>
-                   <asp:BoundField DataField="produto.Nome" HeaderText="Nome" />
-                   <asp:BoundField DataField="ValorUnitario" HeaderText="Preço Unitario" />
-                   <asp:BoundField DataField="Qtd" HeaderText="Quantidade" />
-                   <asp:BoundField DataField="ValorTotal" HeaderText="Preço Total" />
-               </Columns>
-           </asp:gridview>
+    <asp:GridView ID="grvProdutos" runat="server" AutoGenerateColumns="false" Width="800px" CssClass="table table-hover table-striped" GridLines="None">
+        <Columns>
+            <asp:BoundField DataField="produto.Nome" HeaderText="Nome" />
+            <asp:BoundField DataField="ValorUnitario" HeaderText="Preço Unitario" />
+            <asp:BoundField DataField="Qtd" HeaderText="Quantidade" />
+            <asp:BoundField DataField="ValorTotal" HeaderText="Preço Total" />
+        </Columns>
+    </asp:GridView>
     Total: R$
-    <asp:label id="lblTotal" runat="server" text="0"></asp:label>
+    <asp:Label ID="lblTotal" runat="server" Text="0"></asp:Label>
 </asp:Content>

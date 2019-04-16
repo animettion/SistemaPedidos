@@ -24,7 +24,7 @@
     <div runat="server" id="DivGrid" visible="false">
         <asp:GridView ID="grvProdutos" runat="server" AutoGenerateColumns="false" Width="800px" OnRowCommand="grvProdutos_RowCommand" CssClass="table table-hover table-striped" GridLines="None">
             <Columns>
-              <%--  <asp:BoundField DataField="Fornecedor.Pessoa.Nome" HeaderText="Fornecedor" />--%>
+                <%--  <asp:BoundField DataField="Fornecedor.Pessoa.Nome" HeaderText="Fornecedor" />--%>
                 <asp:BoundField DataField="Nome" HeaderText="Nome" />
                 <asp:BoundField DataField="Preco" HeaderText="Preço" />
                 <asp:TemplateField ItemStyle-Width="100px">

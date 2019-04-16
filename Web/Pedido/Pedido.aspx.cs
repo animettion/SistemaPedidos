@@ -101,7 +101,7 @@ namespace Web.Pedido
             double total = 0;
             for (var i = 0; i < ProdutosAdd.Count; i++)
             {
-                total +=  double.Parse(ProdutosAdd[i].Preco);
+                total += double.Parse(ProdutosAdd[i].Preco);
             }
             lblTotal.Text = total.ToString();
         }
@@ -118,7 +118,7 @@ namespace Web.Pedido
 
             //var prodGroup = ProdutosAdd.GroupBy(p => new { p.CodigoProduto, p.Preco })
             //    .GroupBy(g=>g.Key.CodigoProduto)
-                  
+
             //            .Select(group => new {
             //                produto = group.Key,
             //                Count = group.Count()
@@ -129,10 +129,10 @@ namespace Web.Pedido
                     from tt in ProdutosAdd
                     group tt by new { tt.CodigoProduto, tt.Preco } into g
                     select new
-                      {
-                          Name = g.Key,
-                          Count = g.Count()
-                      };
+                    {
+                        Name = g.Key,
+                        Count = g.Count()
+                    };
 
             foreach (var produto in prodGroup)
             {
@@ -144,9 +144,9 @@ namespace Web.Pedido
                 //item.ValorTotal = (int.Parse(item.Qtd) * double.Parse(item.ValorUnitario)).ToString();
                 ItemBLL ibll = new ItemBLL();
                 ibll.Inserir(item);
-             }
+            }
 
-            Response.Redirect("DetalhesPedido.aspx?IDPedido="+ idpedido);
+            Response.Redirect("DetalhesPedido.aspx?IDPedido=" + idpedido);
         }
 
         protected void btnAvancar_Click(object sender, EventArgs e)

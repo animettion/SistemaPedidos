@@ -33,8 +33,9 @@ namespace Web.Pessoa
             if (e.CommandName == "Editar")
             {
                 Response.Redirect("Pessoa.aspx?ID=" + id);
-          
-            }else if (e.CommandName == "Pedido")
+
+            }
+            else if (e.CommandName == "Pedido")
             {
                 Response.Redirect("../Pedido/Pedido.aspx?IDPessoa=" + id);
             }

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>Pessoa</h2>
-    <asp:GridView ID="grvPessoa" runat="server" AutoGenerateColumns="false" Width="800px" OnRowCommand="grvPessoa_RowCommand"  CssClass="table table-hover table-striped"   GridLines="None">
+    <asp:GridView ID="grvPessoa" runat="server" AutoGenerateColumns="false" Width="800px" OnRowCommand="grvPessoa_RowCommand" CssClass="table table-hover table-striped" GridLines="None">
         <Columns>
             <asp:BoundField DataField="Pessoa.Nome" HeaderText="Nome" />
 
@@ -17,7 +17,7 @@
                         CommandArgument='<%# DataBinder.Eval(Container.DataItem, "CodigoPF")%>' />
                 </ItemTemplate>
             </asp:TemplateField>
-              <asp:TemplateField ItemStyle-Width="100px">
+            <asp:TemplateField ItemStyle-Width="100px">
                 <ItemTemplate>
                     <asp:Button ID="btnPedido" runat="server" CommandName="Pedido" Text="Realizar Pedido" class="btn btn-warning"
                         CommandArgument='<%# DataBinder.Eval(Container.DataItem, "CodigoPF")%>' />

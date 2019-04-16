@@ -12,11 +12,11 @@ namespace Web.Produtos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 string idfornecedor = Request["ID"];
                 PessoaJuridicaBLL pjbll = new PessoaJuridicaBLL();
-                var pessoajuridica=pjbll.GetPessoaJuridica(idfornecedor);
+                var pessoajuridica = pjbll.GetPessoaJuridica(idfornecedor);
 
                 lblNome.Text = pessoajuridica.Pessoa.Nome;
                 CarregarProdutos();

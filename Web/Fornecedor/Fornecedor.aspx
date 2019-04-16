@@ -18,8 +18,6 @@
         <label for="exampleInputCPF">CNPJ</label>
         <asp:TextBox ID="txtCNPJ" runat="server" class="form-control" MaxLength="14"></asp:TextBox>
     </div>
-
-    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" class="btn btn-primary" />    
-
+    <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" class="btn btn-primary" />
 </asp:Content>
 

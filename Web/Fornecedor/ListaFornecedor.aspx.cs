@@ -31,13 +31,14 @@ namespace Web.Fornecedor
             string id = e.CommandArgument.ToString();
 
             if (e.CommandName == "Produtos")
-            {               
+            {
                 Response.Redirect("../Produtos/Produtos.aspx?ID=" + id);
             }
             else if (e.CommandName == "Editar")
             {
                 Response.Redirect("Fornecedor.aspx?ID=" + id);
-            }else if (e.CommandName == "Excluir")
+            }
+            else if (e.CommandName == "Excluir")
             {
                 PessoaJuridicaBLL pjbll = new PessoaJuridicaBLL();
                 pjbll.Excluir(id);

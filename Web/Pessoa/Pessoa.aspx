@@ -1,12 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Pessoa.aspx.cs" Inherits="Web.Pessoa.Pessoa" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
- 
-   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  
+
     <h2 class="bd-title">Pessoa</h2>
     <div class="form-group">
         <label for="exampleInputNome">Nome</label>
